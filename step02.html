@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alpine.js Step02</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <div x-data="{ isVisible: false }">
+        <button x-on:click="isVisible = !isVisible">表示・非表示</button>
+        <p x-show="isVisible">こんにちは！</p>
+        <template x-if="isVisible">
+            <p>x-ifで表示されています</p>
+        </template>
+    </div>
+</body>
+
+</html>
+
+<!--
+【コード解説】
+
+<!DOCTYPE html>
+    「これはHTMLファイルです」とブラウザに伝える宣言。ルール。必ず1行目に書く。
+
+<html lang="ja">
+    HTMLの開始タグ。lang="ja"は「このページは日本語」という意味。
+    慣習（省略しても動くが、アクセシビリティのために書く）。
+
+<meta charset="UTF-8">
+    文字化けを防ぐ設定。実質ルール。他のタグより先に書く必要がある。
+
+<title>Alpine.js Step02</title>
+    ブラウザのタブに表示される名前。
+    慣習（どこに書いても動くが、metaタグの後が一般的）。
+
+<script defer src="...">
+    Alpine.jsを読み込む。
+    deferは「HTMLを全部読み終えてから実行する」という意味。
+    Alpine.jsではルール。deferがないと正常に動かない。
+
+<div x-data="{ isVisible: false }">
+    Alpine.jsのデータを定義するエリアの開始。
+    isVisibleという名前の、false（非表示）からスタートする値を持つ。
+    このdivの内側全体でこのデータが使える。Alpine.jsのルール。
+
+<button x-on:click="isVisible = !isVisible">
+    クリックするたびにisVisibleを反転させる。
+    trueならfalseに、falseならtrueに。Alpine.jsのルール。
+
+<p x-show="isVisible">
+    isVisibleがtrueのとき表示、falseのときdisplay:noneで隠す。
+    要素はHTML上に残る。Alpine.jsのルール。
+
+<template x-if="isVisible">
+    isVisibleがtrueのとき要素を生成、falseのとき完全に削除する。
+    x-ifではtemplateタグを使うことがAlpine.jsのルール。
+
+【全体構造】
+    headに設定・読み込み、bodyに表示内容という分担はルール。
+    その中の順番は大部分が慣習。
+-->
