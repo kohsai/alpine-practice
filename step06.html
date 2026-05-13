@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <title>Alpine.js Step06</title>
+    <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <style>
+    [x-cloak] {
+        display: none !important;
+    }
+    </style>
+</head>
+<body>
+    <div x-cloak x-data="{ isOpen: false }">
+    <button @click="isOpen = !isOpen">開く／閉じる</button>
+
+    <div x-show="isOpen" x-transition>
+        <p>フェードで表示されるパネルです。</p>
+    </div>
+    </div>
+</body>
+</html>
