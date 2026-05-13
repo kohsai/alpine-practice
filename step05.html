@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alpine.js Step05</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <div x-data="{ names: ['田中', '鈴木', '佐藤'] }">
+      <ul>
+        <template x-for="(name, index) in names">
+          <li x-text="(index + 1) + '. ' + name"></li>
+        </template>
+      </ul>
+    </div>
+  </body>
+</html>
