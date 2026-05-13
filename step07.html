@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8" />
+    <title>Alpine.js Step07</title>
+    <script
+        defer
+        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <style></style>
+    </head>
+
+    <body>
+    <div x-data="{}">
+        <input x-ref="myInput" type="text" />
+        <button @click="$refs.myInput.focus()">フォーカスを当てる</button>
+        <button @click="$refs.myInput.value = '' ">リセット</button>
+    </div>
+    </body>
+</html>
