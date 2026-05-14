@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8" />
+    <title>Alpine.js Step09</title>
+    <script
+        defer
+        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <style>
+        .warning {
+            color: red;
+        }
+    </style>
+    </head>
+
+<body>
+    <!-- 次はこの<body>の中に以下を書いてみてください。
+
+x-dataでtext（空文字）とlimit（100）を定義する
+x-initで$watch('text', ...)を登録する（中身はまだ空でOK）
+<textarea>を1つ置いてx-model="text"を繋げる
+<p>タグで現在の文字数と上限を表示する（x-textを使う） -->
+
+    <div
+        x-data="{ text: '', limit: 100 }"
+        x-init="$watch('text', value => {
+            if(value.length > limit * 0.8)
+            console.log('警告：文字数が上限に近づいています')
+        }
+    )"
+    >
+    <textarea x-model="text" placeholder="入力してください"></textarea>
+    <p :class="text.length > limit * 0.8 ? 'warning' : ''">
+        <span x-text="text.length"></span> / <span x-text="limit"></span>文字
+    </p>
+    </div>
+</body>
+</html>
