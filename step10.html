@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8" />
+    <title>Alpine.js Step10</title>
+    <script
+        defer
+        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <style></style>
+    </head>
+<body>
+    <nav x-data>
+        カート：<span x-text="$store.cart.count"></span>個
+    </nav>
+
+    <div x-data>
+        <button @click="$store.cart.add()">カートに追加</button>
+        <button @click="$store.cart.remove()">カートから削除</button>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('cart', {
+                count: 0,
+                add() {
+                    this.count++
+                },
+                remove() {
+                    if (this.count > 0) {
+                        this.count--
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>
